@@ -1,0 +1,55 @@
+@import "./styles/animations.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-size: 18px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    @apply m-0 min-h-[100dvh] bg-burgundy font-body text-ivory antialiased;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  #root {
+    @apply min-h-[100dvh] w-full max-w-none border-0 text-left;
+  }
+}
+
+/* Raise the smallest labels and supporting copy throughout the experience. */
+.text-xs { font-size: 1rem; line-height: 1.4; }
+.text-sm { font-size: 1.12rem; line-height: 1.55; }
+.text-base { font-size: 1.2rem; line-height: 1.6; }
+.text-lg { font-size: 1.35rem; line-height: 1.55; }
+
+@layer utilities {
+  .text-glow-cherry {
+    text-shadow: 0 0 24px rgba(181, 18, 43, 0.8), 0 0 48px rgba(244, 166, 184, 0.4);
+  }
+
+  .grain {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  }
+}
